@@ -3,6 +3,7 @@
  */
 var Sequelize = require('sequelize');
 var sequelize = require('../db');
+// var Person = require('./person')
 
 //create Pet model
 const Pet = sequelize.define('pet',
@@ -12,18 +13,20 @@ const Pet = sequelize.define('pet',
     birth: Sequelize.STRING(10),
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE,
+    personId: Sequelize.INTEGER,
   },
   {
     timestamps: false
   }
 );
 
+// Pet.belongsTo(Person,{as:'person',foreignKey:'personId'});
 
 // 创建表
 // Pet.sync() 会创建表并且返回一个 Promise 对象
 // 如果 force = true 则会把存在的表（如果 pets 表已存在）先销毁再创建表
 // 默认情况下 forse = false
-const pet = Pet.sync({ force: false });
+Pet.sync({ force: false });
 module.exports = Pet;
 
 

@@ -3,27 +3,29 @@
  */
 var Sequelize = require('sequelize');
 var sequelize = require('../db');
-var Pet = require('./pet')
+
 
 //create Pet model
 const Person = sequelize.define('person',
   {
     name: Sequelize.STRING(100),
-    age:Sequelize.INTEGER,
+    age: Sequelize.INTEGER,
   },
   {
     timestamps: false
   }
 );
 
-Person.hasMany(Pet, {as: 'pets'})
-
 
 // 创建表
 // Pet.sync() 会创建表并且返回一个 Promise 对象
 // 如果 force = true 则会把存在的表（如果 pets 表已存在）先销毁再创建表
 // 默认情况下 forse = false
-const person = Person.sync({ force: false });
+const person = Person.sync({force: false});
+
+var Pet = require('./pet')
+Person.hasMany(Pet, {as: 'pets'})
+
 module.exports = Person;
 
 // // 添加新pet

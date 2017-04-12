@@ -22,3 +22,4 @@ personRouter.get('/add', (req, res) => {
   });
 })
 
+module.exports = personRouter
