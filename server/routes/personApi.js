@@ -7,7 +7,7 @@ const personRouter = express.Router()
 
 // import person and pet model
 const Person = require('../model/person')
-const Pet = require('../model/pet')
+
 
 personRouter.get('/add', (req, res) => {
   let personInfo = {

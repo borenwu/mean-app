@@ -11,21 +11,22 @@ const Person = require('../model/person')
 
 
 petRouter.get('/add', (req, res) => {
-  let now = Date.now();
-  let date = dateFormat(now, "yyyy-mm-dd");
-  let pet = {
-    name:'Gaffey',
-    gender:false,
-    birth:'2007-07-07',
-    createdAt: date,
-    updatedAt: date
-  }
+  // let now = Date.now();
+  // let date = dateFormat(now, "yyyy-mm-dd");
+  // let pet = {
+  //   name:'Gaffey',
+  //   gender:false,
+  //   birth:'2007-07-07',
+  //   createdAt: date,
+  //   updatedAt: date
+  // }
+  //
+  // Pet.create(pet).then(function (pet) {
+  //   console.log('****************************');
+  //   res.send(JSON.stringify(pet))
+  //   console.log(JSON.stringify(pet));
+  // });
 
-  Pet.create(pet).then(function (pet) {
-    console.log('****************************');
-    res.send(JSON.stringify(pet))
-    console.log(JSON.stringify(pet));
-  });
 })
 
 
