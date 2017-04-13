@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 
 const models = require('./server/models')
 const api = require('./server/routes/api')
+const userApi = require('./server/routes/users')
 // const personApi = require('./server/routes/personApi')
 // const petApi = require('./server/routes/petApi')
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'dist')))
 
 app.use('/api', api)
+app.use('/api/user',userApi)
 // app.use('/person',personApi)
 // app.use('/pet', petApi)
 
