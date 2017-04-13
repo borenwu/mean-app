@@ -1,15 +1,13 @@
-/**
- * Created by Administrator on 2017/4/11.
- */
-const express = require('express')
-const router = express.Router()
+var models  = require('../models');
+var express = require('express');
+var router  = express.Router();
 
-router.get('/',(req,res)=>{
-    res.send('api works')
-})
+router.get('/', function(req, res) {
+  models.User.findAll({
+    include: [ models.Task ]
+  }).then(function(users) {
+    res.send(users)
+  });
+});
 
-router.get('/test',(req,res)=>{
-  res.send('api test works')
-})
-
-module.exports = router
+module.exports = router;
